@@ -71,14 +71,14 @@ const TRANSLATIONS = {
         },
         testimonials: {
             title: 'Depoimentos',
-            subtitle: 'O que clientes e parceiros dizem sobre meu trabalho',
+            subtitle: 'O que clientes e parceiros dizem sobre o trabalho da GRX AGENCY',
             list: [
-                { name: 'Laura Menezes', role: 'CMO, SaaS B2B', text: 'Guilherme chegou com um diagnóstico claro, reorganizou copy, layout e formulários no nosso site. Em 6 semanas, demos um salto de +38% em leads qualificados. Ele fala a língua do time de marketing e entrega rápido.' },
-                { name: 'Felipe Duarte', role: 'Fundador, Estúdio Criativo', text: 'Precisávamos de uma identidade que conversasse com clientes de branding e social. O Guilherme criou um guia visual completo e arquivos prontos em Photoshop, Illustrator e InDesign. Ficou fácil de replicar e o cliente final entendeu tudo na primeira apresentação.' },
-                { name: 'Beatriz Ramos', role: 'Owner, Loja de Moda', text: 'Ele refez nossa landing de coleção com foco em UX e fotos bem posicionadas. Ajustou paleta, tipografia e botões. As clientes entenderam a proposta e o ticket médio subiu. Entrega certeira.' },
-                { name: 'Marcus Azevedo', role: 'Produtor, Eventos', text: 'Guilherme criou todo o material do evento: identidade, folder e peças sociais. Entregou arquivos editáveis em InDesign e Illustrator, com export otimizado. O cliente aprovou de primeira.' },
-                { name: 'João Diniz', role: 'Head de Produto, Fintech', text: 'Precisávamos alinhar UI com guidelines e criar componentes no Figma. Ele padronizou ícones, grids e entregou exports prontos para dev. O handoff foi limpo e sem retrabalho.' },
-                { name: 'Ana Prado', role: 'Diretora de Arte', text: 'Nos apresentou versões em Illustrator e InDesign, prontas para gráfica e digital. Ajustou cores para pantone e CMYK, cuidou de export em lotes e deixou um guia rápido de uso. Muito prático.' }
+                { name: 'Laura Menezes', role: 'CMO, SaaS B2B', text: 'A GRX AGENCY chegou com um diagnóstico claro, reorganizou copy, layout e formulários no nosso site. Em 6 semanas, demos um salto de +38% em leads qualificados. Entendem a língua do time de marketing e entregam rápido.' },
+                { name: 'Maria Silva', role: 'Fundadora, Estúdio Criativo', text: 'Precisávamos de uma identidade que conversasse com clientes de branding e social. A GRX AGENCY criou um guia visual completo e arquivos prontos em Photoshop, Illustrator e InDesign. Ficou fácil de replicar e nosso cliente aprovou na primeira.' },
+                { name: 'Beatriz Ramos', role: 'Owner, Loja de Moda', text: 'A equipe refez nossa landing de coleção com foco em UX e fotos bem posicionadas. Ajustaram paleta, tipografia e botões. Nossas clientes entenderam a proposta e o ticket médio subiu. Entrega certeira e profissional.' },
+                { name: 'Marcus Azevedo', role: 'Produtor, Eventos', text: 'A GRX AGENCY criou todo o material do evento: identidade, folder e peças sociais. Entregaram arquivos editáveis em InDesign e Illustrator, com export otimizado. Meu cliente aprovou de primeira e pediu para trabalharmos juntos de novo.' },
+                { name: 'João Diniz', role: 'Head de Produto, Fintech', text: 'Precisávamos alinhar UI com guidelines e criar componentes no Figma. A GRX AGENCY padronizou ícones, grids e entregou exports prontos para dev. O handoff foi limpo, sem retrabalho e documentado perfeitamente.' },
+                { name: 'Ana Paula Costa', role: 'Diretora de Arte', text: 'A equipe nos apresentou versões em Illustrator e InDesign, prontas para gráfica e digital. Ajustaram cores para pantone e CMYK, cuidaram de export em lotes e deixaram um guia rápido de uso. Muito prático e objetivo.' }
             ]
         },
         contact: {
