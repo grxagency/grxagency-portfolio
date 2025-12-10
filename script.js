@@ -767,29 +767,58 @@ function initFormHandler() {
         try {
             let data = null;
 
-            // 1) Try EmailJS client-side if configured
-            if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_USER_ID && window.emailjs) {
-                try {
-                    const templateParams = {
-                        name: formData.name,
-                        email: formData.email,
-                        phone: formData.phone,
-                        subject: formData.subject,
-                        message: formData.message
-                    };
-                    const res = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-                    console.log('EmailJS result', res);
-                    data = { success: true };
-                } catch (e) {
-                    console.error('EmailJS send error', e);
-                    let errMsg = 'Erro ao enviar via EmailJS';
-                    try { errMsg = e && (e.text || e.statusText || e.message) || JSON.stringify(e); } catch (_) {}
-                    data = { success: false, message: `EmailJS error: ${errMsg}` };
+            // 1) Try EmailJS if configured. Prefer SDK if present, otherwise call EmailJS REST API directly.
+            if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_USER_ID) {
+                const templateParams = {
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    subject: formData.subject,
+                    message: formData.message
+                };
+
+                if (window.emailjs) {
+                    // Use SDK
+                    try {
+                        const res = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+                        console.log('EmailJS (SDK) result', res);
+                        data = { success: true };
+                    } catch (e) {
+                        console.error('EmailJS (SDK) send error', e);
+                        let errMsg = 'Erro ao enviar via EmailJS (SDK)';
+                        try { errMsg = e && (e.text || e.statusText || e.message) || JSON.stringify(e); } catch (_) {}
+                        data = { success: false, message: `EmailJS SDK error: ${errMsg}` };
+                    }
+                } else {
+                    // Try REST API (no SDK required) - this avoids dependency on the SDK script loading
+                    try {
+                        const resp = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                service_id: EMAILJS_SERVICE_ID,
+                                template_id: EMAILJS_TEMPLATE_ID,
+                                user_id: EMAILJS_USER_ID,
+                                template_params: templateParams
+                            })
+                        });
+
+                        if (!resp.ok) {
+                            const body = await resp.text().catch(() => '');
+                            console.error('EmailJS REST returned non-OK', resp.status, body);
+                            data = { success: false, message: `EmailJS REST error ${resp.status}: ${body}` };
+                        } else {
+                            const j = await resp.json().catch(() => ({}));
+                            console.log('EmailJS (REST) success', j);
+                            data = { success: true };
+                        }
+                    } catch (e) {
+                        console.error('EmailJS REST request failed', e);
+                        data = { success: false, message: `EmailJS REST failed: ${e && e.message ? e.message : e}` };
+                    }
                 }
             } else {
-                if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_USER_ID && !window.emailjs) {
-                    console.warn('EmailJS configured but SDK not loaded. Falling back to server endpoint.');
-                }
+                if (EMAILJS_SERVICE_ID || EMAILJS_TEMPLATE_ID || EMAILJS_USER_ID) console.warn('EmailJS IDs incomplete; skipping EmailJS.');
 
                 // 2) Fallback: try relative /api/contact first (works if you deployed server on same host)
                 let response = null;
