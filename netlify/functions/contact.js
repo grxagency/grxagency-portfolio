@@ -1,5 +1,4 @@
-const fetch = globalThis.fetch || require('node-fetch');
-
+// No need to require node-fetch - Node.js 18+ has native fetch support
 exports.handler = async function(event, context) {
   // Allow only POST
   if (event.httpMethod !== 'POST') {
