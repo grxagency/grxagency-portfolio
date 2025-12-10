@@ -89,7 +89,11 @@ const TRANSLATIONS = {
                 { title: 'WhatsApp', text: 'Resposta rápida e atendimento humanizado', linkText: 'Abrir conversa', href: 'https://wa.me/5511954608135' },
                 { title: 'E-mail', text: 'Para dúvidas e briefings detalhados', linkText: 'contato.grxagency@outlook.com', href: 'mailto:contato.grxagency@outlook.com' },
                 { title: 'LinkedIn', text: 'Acompanhe conteúdo e atualizações', linkText: 'Visitar perfil', href: 'https://linkedin.com/in/grxagency' }
-            ]
+            ],
+            cta: {
+                title: 'Pronto para impulsionar seu negócio?',
+                button: 'Conversar Agora no WhatsApp'
+            }
         },
         footer: {
             about: 'Agência especializada em criação de sites, design, branding e soluções digitais para empresas que visam crescimento e inovação.',
@@ -182,7 +186,11 @@ const TRANSLATIONS = {
                 { title: 'WhatsApp', text: 'Resposta rápida e atendimento humanizado', linkText: 'Abrir conversa', href: 'https://wa.me/5511954608135' },
                 { title: 'E-mail', text: 'Para dúvidas e briefings detalhados', linkText: 'contato.grxagency@outlook.com', href: 'mailto:contato.grxagency@outlook.com' },
                 { title: 'LinkedIn', text: 'Acompanhe conteúdo e atualizações', linkText: 'Visitar perfil', href: 'https://linkedin.com/in/grxagency' }
-            ]
+            ],
+            cta: {
+                title: 'Ready to boost your business?',
+                button: 'Let\'s Talk on WhatsApp'
+            }
         },
         footer: {
             about: 'Agency specialized in website creation, design, branding and digital solutions for companies aiming growth and innovation.',
@@ -299,6 +307,18 @@ function applyTranslations() {
     if (footerBottom) {
         const year = new Date().getFullYear();
         footerBottom.textContent = (t('footer.copyright') || '').replace('{year}', year);
+    }
+
+    // CTA Section (Pronto para impulsionar / Ready to boost)
+    const ctaTitle = document.querySelector('.contact-cta h3');
+    const ctaButton = document.querySelector('.contact-cta a');
+    if (ctaTitle) ctaTitle.textContent = t('contact.cta.title');
+    if (ctaButton) {
+        // Atualiza apenas o texto do botão, preservando o SVG
+        const svg = ctaButton.querySelector('svg');
+        ctaButton.textContent = '';
+        if (svg) ctaButton.appendChild(svg);
+        ctaButton.appendChild(document.createTextNode(t('contact.cta.button')));
     }
 
     // Atualiza texto de botões no header (botões de idioma)
