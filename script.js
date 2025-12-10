@@ -5,6 +5,18 @@
 // Small 1x1 transparent placeholder to avoid empty src requests
 const PLACEHOLDER_IMG = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
+// Optional EmailJS configuration (client-side). Fill these values to enable client-side sending
+// - Create a service/template/user in https://www.emailjs.com and paste IDs here
+// Example: EMAILJS_SERVICE_ID = 'service_xxx', EMAILJS_TEMPLATE_ID = 'template_yyy', EMAILJS_USER_ID = 'user_zzzz'
+const EMAILJS_SERVICE_ID = '';
+const EMAILJS_TEMPLATE_ID = '';
+const EMAILJS_USER_ID = '';
+
+// Initialize EmailJS if SDK is loaded and user id provided
+if (typeof window !== 'undefined' && window.emailjs && EMAILJS_USER_ID) {
+    try { emailjs.init(EMAILJS_USER_ID); } catch (e) { console.warn('EmailJS init failed', e); }
+}
+
 // Traduções completas para interface (pt / en)
 const TRANSLATIONS = {
     pt: {
@@ -19,18 +31,40 @@ const TRANSLATIONS = {
             title: 'Meus Serviços',
             subtitle: 'Soluções digitais completas para sua empresa crescer',
             cards: [
-                { title: 'Criação de Sites', desc: 'Desenvolvo sites modernos, responsivos e otimizados para conversão. Desde landing pages até plataformas completas.' },
-                { title: 'Design e Branding', desc: 'Crio identidades visuais poderosas que conectam com seu público e transmitem profissionalismo.' },
+                // Sending priority:
+                // 1) If EmailJS IDs are configured, send via EmailJS (client-side)
+                // 2) Otherwise, fall back to server endpoint at `/api/contact` (if you deployed `server.js`)
+
+                let data;
+                if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_USER_ID && window.emailjs) {
+                    // Send via EmailJS
+                    const templateParams = {
+                        name: formData.name,
+                        email: formData.email,
+                        phone: formData.phone,
+                        subject: formData.subject,
+                        message: formData.message
+                    };
+                    try {
+                        const res = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+                        console.log('EmailJS result', res);
+                        data = { success: true };
+                    } catch (e) {
+                        console.error('EmailJS send error', e);
+                        data = { success: false, message: 'Erro ao enviar via EmailJS' };
+                    }
+                } else {
+                    // Envia para backend (Brevo API) - use /api/contact so it works when server is deployed
+                    const response = await fetch('/api/contact', {
                 { title: 'Social Media', desc: 'Estratégias de conteúdo e gerenciamento de redes sociais que geram engajamento e crescimento.' },
                 { title: 'E-commerce', desc: 'Lojas online completas com integração de pagamento, gestão de produtos e otimização de vendas.' },
                 { title: 'Automação', desc: 'Sistemas inteligentes que automatizam processos, economizam tempo e aumentam produtividade.' },
-                { title: 'Consultoria Digital', desc: 'Orientação estratégica para sua transformação digital, escolha de tecnologias e roadmap de crescimento.' }
-            ]
-        },
-        about: {
+                    });
+
+                    data = await response.json();
+                    console.log('Resultado envio:', data);
             eyebrow: 'Sobre o estúdio',
-            title: 'Design estratégico para marcas que querem vender mais',
-            subtitle: 'Unimos branding, UX e performance para criar sites, landing pages e identidades que comunicam valor real e geram confiança.',
+                if (data && data.success) {
             badges: [
                 { strong: '7 anos', span: 'em design e produto digital' },
                 { strong: '+35%', span: 'média de aumento em conversão' },
