@@ -31,46 +31,13 @@ const TRANSLATIONS = {
             title: 'Meus Serviços',
             subtitle: 'Soluções digitais completas para sua empresa crescer',
             cards: [
-                // Sending priority:
-                // 1) If EmailJS IDs are configured, send via EmailJS (client-side)
-                // 2) Otherwise, fall back to server endpoint at `/api/contact` (if you deployed `server.js`)
-
-                let data;
-                if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_USER_ID && window.emailjs) {
-                    // Send via EmailJS
-                    const templateParams = {
-                        name: formData.name,
-                        email: formData.email,
-                        phone: formData.phone,
-                        subject: formData.subject,
-                        message: formData.message
-                    };
-                    try {
-                        const res = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-                        console.log('EmailJS result', res);
-                        data = { success: true };
-                    } catch (e) {
-                        console.error('EmailJS send error', e);
-                        data = { success: false, message: 'Erro ao enviar via EmailJS' };
-                    }
-                } else {
-                    // Envia para backend (Brevo API) - use /api/contact so it works when server is deployed
-                    const response = await fetch('/api/contact', {
+                { title: 'Criação de Sites', desc: 'Desenvolvo sites modernos, responsivos e otimizados para conversão. Desde landing pages até plataformas completas.' },
+                { title: 'Design e Branding', desc: 'Crio identidades visuais poderosas que conectam com seu público e transmitem profissionalismo.' },
                 { title: 'Social Media', desc: 'Estratégias de conteúdo e gerenciamento de redes sociais que geram engajamento e crescimento.' },
                 { title: 'E-commerce', desc: 'Lojas online completas com integração de pagamento, gestão de produtos e otimização de vendas.' },
                 { title: 'Automação', desc: 'Sistemas inteligentes que automatizam processos, economizam tempo e aumentam produtividade.' },
-                    });
-
-                    data = await response.json();
-                    console.log('Resultado envio:', data);
-            eyebrow: 'Sobre o estúdio',
-                if (data && data.success) {
-            badges: [
-                { strong: '7 anos', span: 'em design e produto digital' },
-                { strong: '+35%', span: 'média de aumento em conversão' },
-                { strong: 'Entrega ágil', span: 'roadmap claro e sprints semanais' }
-            ],
-            pills: ['UX/UI','Identidade visual','Webflow/WordPress','CRO','Design System']
+                { title: 'Consultoria Digital', desc: 'Orientação estratégica para sua transformação digital, escolha de tecnologias e roadmap de crescimento.' }
+            ]
         },
         process: {
             title: 'Processo claro em 4 passos',
@@ -798,25 +765,79 @@ function initFormHandler() {
         console.log('Contato: iniciando envio', formData);
 
         try {
-            // Envia para backend (Brevo API)
-            const response = await fetch('http://localhost:3000/api/contact', {  // ✅ Porta 3000
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-            });
+            let data = null;
 
-            const data = await response.json();
-            console.log('Resultado envio:', data);
+            // 1) Try EmailJS client-side if configured
+            if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_USER_ID && window.emailjs) {
+                try {
+                    const templateParams = {
+                        name: formData.name,
+                        email: formData.email,
+                        phone: formData.phone,
+                        subject: formData.subject,
+                        message: formData.message
+                    };
+                    const res = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+                    console.log('EmailJS result', res);
+                    data = { success: true };
+                } catch (e) {
+                    console.error('EmailJS send error', e);
+                    let errMsg = 'Erro ao enviar via EmailJS';
+                    try { errMsg = e && (e.text || e.statusText || e.message) || JSON.stringify(e); } catch (_) {}
+                    data = { success: false, message: `EmailJS error: ${errMsg}` };
+                }
+            } else {
+                if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_USER_ID && !window.emailjs) {
+                    console.warn('EmailJS configured but SDK not loaded. Falling back to server endpoint.');
+                }
 
-            if (data.success) {
+                // 2) Fallback: try relative /api/contact first (works if you deployed server on same host)
+                let response = null;
+                try {
+                    response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+                } catch (e) {
+                    console.warn('Fetch to /api/contact failed', e);
+                }
+
+                // If relative route returned 404 or wasn't available, try localhost (local dev)
+                if (!response || !response.ok) {
+                    if (response && response.status === 404) {
+                        try {
+                            response = await fetch('http://localhost:3000/api/contact', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(formData)
+                            });
+                        } catch (e) {
+                            console.warn('Fetch to http://localhost:3000/api/contact failed', e);
+                        }
+                    }
+                }
+
+                if (response && response.ok) {
+                    try { data = await response.json(); } catch (e) { data = { success: false, message: 'Resposta inválida do servidor' }; }
+                    console.log('Resultado envio (server):', data);
+                } else {
+                    const status = response ? response.status : 'no-response';
+                    const text = response ? await response.text().catch(() => '') : '';
+                    console.error('Server error when posting contact:', status, text);
+                    data = { success: false, message: `Server error ${status}: ${text || 'no body'}` };
+                }
+            }
+
+            if (data && data.success) {
                 showSuccessMessage(form, '✓ Mensagem recebida com sucesso! Você receberá uma confirmação por e-mail em breve.');
                 form.reset();
             } else {
-                showErrorMessage(data.message || 'Não foi possível enviar a mensagem. Tente novamente.');
+                showErrorMessage((data && data.message) || 'Não foi possível enviar a mensagem. Tente novamente.');
             }
         } catch (err) {
             console.error('Erro ao enviar:', err);
-            showErrorMessage('Erro ao enviar mensagem. Tente novamente ou entre em contato via WhatsApp.');
+            showErrorMessage('Erro ao enviar mensagem. Tente novamente ou entre em contato via WhatsApp. ' + (err && err.message ? err.message : ''));
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
