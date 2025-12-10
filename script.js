@@ -170,12 +170,12 @@ const TRANSLATIONS = {
             title: 'Shall We Work Together?',
             subtitle: 'Leave your message or contact directly via WhatsApp',
             form: {
-                nameLabel: 'Seu Nome', emailLabel: 'Seu E-mail', phoneLabel: 'WhatsApp (Opcional)',
-                serviceLabel: 'Tipo de Serviço', serviceOptions: {
-                    '': 'Selecione um serviço', site: 'Criação de Site', design: 'Design e Branding', social: 'Social Media', ecommerce: 'E-commerce', automation: 'Automação', consulting: 'Consultoria', other: 'Outro'
+                nameLabel: 'Your Name', emailLabel: 'Your E-mail', phoneLabel: 'WhatsApp (Optional)',
+                serviceLabel: 'Service Type', serviceOptions: {
+                    '': 'Select a service', site: 'Website Development', design: 'Design & Branding', social: 'Social Media', ecommerce: 'E-commerce', automation: 'Automation', consulting: 'Consulting', other: 'Other'
                 },
-                messageLabel: 'Sua Mensagem', sendButton: 'Enviar Mensagem', placeholders: {
-                    name: 'João Silva', email: 'joao@email.com', phone: '(11) 9 9999-9999', message: 'Conte-me um pouco sobre seu projeto...'
+                messageLabel: 'Your Message', sendButton: 'Send Message', placeholders: {
+                    name: 'John Smith', email: 'john@email.com', phone: '(11) 9 9999-9999', message: 'Tell me a little about your project...'
                 }
             },
             infoCards: [
