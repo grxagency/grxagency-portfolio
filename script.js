@@ -8,9 +8,9 @@ const PLACEHOLDER_IMG = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAA
 // Optional EmailJS configuration (client-side). Fill these values to enable client-side sending
 // - Create a service/template/user in https://www.emailjs.com and paste IDs here
 // Example: EMAILJS_SERVICE_ID = 'service_xxx', EMAILJS_TEMPLATE_ID = 'template_yyy', EMAILJS_USER_ID = 'user_zzzz'
-const EMAILJS_SERVICE_ID = '';
-const EMAILJS_TEMPLATE_ID = '';
-const EMAILJS_USER_ID = '';
+const EMAILJS_SERVICE_ID = 'service_4dnn4mn';
+const EMAILJS_TEMPLATE_ID = 'template_ia723n8';
+const EMAILJS_USER_ID = 'qSqDsW_1Hf7jx1YDl';
 
 // Initialize EmailJS if SDK is loaded and user id provided
 if (typeof window !== 'undefined' && window.emailjs && EMAILJS_USER_ID) {
