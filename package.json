@@ -1,0 +1,37 @@
+{
+  "name": "grx-agency",
+  "version": "1.0.0",
+  "description": "Portfolio profissional moderno para GRX AGENCY - Agência de criação de sites, design e marketing digital",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000 -c-1",
+    "server": "http-server -p 8000",
+    "dev": "http-server -p 3000 -c-1",
+    "contact-server": "node server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "agência",
+    "web design",
+    "sites",
+    "marketing",
+    "design",
+    "grx"
+  ],
+  "author": "GRX AGENCY",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/grx-agency.git"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "nodemailer": "^7.0.11"
+  }
+}

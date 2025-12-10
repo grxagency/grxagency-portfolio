@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="GRX AGENCY - Agência especializada em criação de sites, design, branding e soluções digitais para sua empresa.">
+    <meta name="keywords" content="sites, design, branding, marketing digital, agência, web design">
+    <meta name="author" content="GRX AGENCY">
+    <meta name="theme-color" content="#B00020">
+    <link rel="icon" type="image/png" href="assets/Icone X certa.png">
+    
+    <title>GRX AGENCY | Sites, Design & Marketing Digital</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ============================================
+         HEADER / NAVEGAÇÃO
+         ============================================ -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <!-- Logo -->
+                <div class="logo">
+                    <div class="logo-icon">
+                        <img src="assets/Icone X certa.png" alt="GRX AGENCY Logo" class="logo-img">
+                    </div>
+                    <span class="logo-text brand-font">GRX AGENCY</span>
+                </div>
+
+                <!-- Menu Desktop -->
+                <ul class="nav-menu">
+                    <li><a href="#hero" class="nav-link">Início</a></li>
+                    <li><a href="#services" class="nav-link">Serviços</a></li>
+                    <li><a href="#about" class="nav-link">Sobre</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+                    <li><a href="#benefits" class="nav-link">Por que Contratar</a></li>
+                    <li><a href="#testimonials" class="nav-link">Depoimentos</a></li>
+                    <li><a href="#contact" class="nav-link">Contato</a></li>
+                </ul>
+
+                <!-- CTA Button Desktop -->
+                <a href="https://wa.me/5511954608135" class="btn btn-cta-header" target="_blank" aria-label="Solicitar orçamento via WhatsApp">Solicitar Orçamento</a>
+
+                <!-- Language switch (dropdown) -->
+                <div class="lang-switch" id="langSwitch" aria-label="Language selector">
+                    <button class="lang-current" id="langCurrent" aria-haspopup="listbox" aria-expanded="false">
+                        <span class="lang-flag">🇧🇷</span>
+                        <span class="lang-label">PT</span>
+                        <svg class="caret" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9" /></svg>
+                    </button>
+                    <ul class="lang-options" role="listbox" tabindex="-1" aria-labelledby="langCurrent">
+                        <li role="option" data-lang="pt" class="lang-option" aria-selected="true"><span class="lang-flag">🇧🇷</span><span class="lang-name">Português</span></li>
+                        <li role="option" data-lang="en" class="lang-option" aria-selected="false"><span class="lang-flag">🇺🇸</span><span class="lang-name">English</span></li>
+                    </ul>
+                </div>
+
+                <!-- Menu Hamburger -->
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Sua <span class="highlight">Presença Digital</span> em Outro Nível
+                </h1>
+                <p class="hero-subtitle">
+                    Somos a <strong>GRX AGENCY</strong>, especializados em sites premium, branding e experiências digitais que convertem. Projetamos estratégia, design e tecnologia para você vender mais.
+                </p>
+                <div class="hero-cta">
+                    <a href="https://wa.me/5511954608135" class="btn btn-primary" target="_blank" aria-label="Contatar via WhatsApp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        Conversar no WhatsApp
+                    </a>
+                    <a href="#portfolio" class="btn btn-secondary" aria-label="Ver projetos do portfólio">
+                        Ver portfólio
+                    </a>
+                </div>
+                <div class="hero-highlights">
+                    <div class="hero-badge">
+                        <strong>+120</strong>
+                        <span>projetos entregues</span>
+                    </div>
+                    <div class="hero-badge">
+                        <strong>UX/CRO</strong>
+                        <span>foco em conversão</span>
+                    </div>
+                    <div class="hero-badge">
+                        <strong>Branding</strong>
+                        <span>identidades completas</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    <svg width="100%" height="100%" viewBox="0 0 400 400" fill="none">
+                        <!-- Círculo decorativo grande -->
+                        <circle cx="200" cy="200" r="180" fill="url(#gradRed)" opacity="0.1"/>
+                        <circle cx="200" cy="200" r="150" fill="url(#gradRed)" opacity="0.15"/>
+                        
+                        <!-- Ilustração tech abstrata -->
+                        <rect x="80" y="100" width="240" height="200" rx="16" fill="#B00020" opacity="0.1" stroke="#B00020" stroke-width="2"/>
+                        
+                        <!-- Linhas abstratas -->
+                        <line x1="100" y1="140" x2="300" y2="140" stroke="#B00020" stroke-width="2" opacity="0.3"/>
+                        <line x1="100" y1="170" x2="280" y2="170" stroke="#D12A3A" stroke-width="2" opacity="0.3"/>
+                        <line x1="100" y1="200" x2="300" y2="200" stroke="#B00020" stroke-width="2" opacity="0.3"/>
+                        <line x1="100" y1="230" x2="260" y2="230" stroke="#D12A3A" stroke-width="2" opacity="0.3"/>
+                        <line x1="100" y1="260" x2="290" y2="260" stroke="#B00020" stroke-width="2" opacity="0.3"/>
+                        
+                        <!-- Círculos de ponto -->
+                        <circle cx="320" cy="130" r="6" fill="#B00020" opacity="0.4"/>
+                        <circle cx="330" cy="160" r="5" fill="#D12A3A" opacity="0.4"/>
+                        <circle cx="325" cy="200" r="4" fill="#B00020" opacity="0.4"/>
+                        <circle cx="335" cy="240" r="5" fill="#D12A3A" opacity="0.4"/>
+                        
+                        <defs>
+                            <radialGradient id="gradRed" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%" style="stop-color:#B00020;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#7A0015;stop-opacity:1" />
+                            </radialGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SEÇÃO DE SERVIÇOS
+         ============================================ -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meus Serviços</h2>
+                <p class="section-subtitle">Soluções digitais completas para sua empresa crescer</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Serviço 1 -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="6" y="6" width="36" height="36" rx="4" stroke="#B00020" stroke-width="2"/>
+                            <path d="M6 18h36" stroke="#B00020" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="1.5" fill="#B00020"/>
+                            <circle cx="18" cy="12" r="1.5" fill="#B00020"/>
+                            <circle cx="24" cy="12" r="1.5" fill="#B00020"/>
+                        </svg>
+                    </div>
+                    <h3>Criação de Sites</h3>
+                    <p>Desenvolvo sites modernos, responsivos e otimizados para conversão. Desde landing pages até plataformas completas.</p>
+                </div>
+
+                <!-- Serviço 2 -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="18" stroke="#B00020" stroke-width="2"/>
+                            <path d="M24 12v12l8 5" stroke="#B00020" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="24" cy="24" r="3" fill="#B00020"/>
+                        </svg>
+                    </div>
+                    <h3>Design e Branding</h3>
+                    <p>Crio identidades visuais poderosas que conectam com seu público e transmitem profissionalismo.</p>
+                </div>
+
+                <!-- Serviço 3 -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M12 28c0-8 5-12 12-12s12 4 12 12" stroke="#B00020" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="24" cy="20" r="6" stroke="#B00020" stroke-width="2"/>
+                            <path d="M18 36h12" stroke="#B00020" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16 42h16" stroke="#B00020" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Social Media</h3>
+                    <p>Estratégias de conteúdo e gerenciamento de redes sociais que geram engajamento e crescimento.</p>
+                </div>
+
+                <!-- Serviço 4 -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="12" width="32" height="24" rx="2" stroke="#B00020" stroke-width="2"/>
+                            <path d="M14 12v-2a2 2 0 012-2h16a2 2 0 012 2v2" stroke="#B00020" stroke-width="2"/>
+                            <path d="M20 28v4m8-4v4" stroke="#B00020" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>E-commerce</h3>
+                    <p>Lojas online completas com integração de pagamento, gestão de produtos e otimização de vendas.</p>
+                </div>
+
+                <!-- Serviço 5 -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <rect x="6" y="8" width="36" height="32" rx="2" stroke="#B00020" stroke-width="2"/>
+                            <path d="M6 16h36" stroke="#B00020" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="1.5" fill="#B00020"/>
+                            <path d="M14 28l4 4 8-10" stroke="#B00020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Automação</h3>
+                    <p>Sistemas inteligentes que automatizam processos, economizam tempo e aumentam produtividade.</p>
+                </div>
+
+                <!-- Serviço 6 -->
+                <div class="service-card" data-aos="fade-up">
+                    <div class="service-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 6L30 12V18C30 24 24 30 24 30C24 30 18 24 18 18V12L24 6Z" stroke="#B00020" stroke-width="2"/>
+                            <circle cx="24" cy="16" r="2" fill="#B00020"/>
+                            <path d="M20 38h8" stroke="#B00020" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Consultoria Digital</h3>
+                    <p>Orientação estratégica para sua transformação digital, escolha de tecnologias e roadmap de crescimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SOBRE / PROCESSO
+         ============================================ -->
+    <section id="about" class="about">
+        <div class="container about-grid">
+            <div class="about-left">
+                <p class="eyebrow">Sobre o estúdio</p>
+                <h2 class="section-title">Design estratégico para marcas que querem vender mais</h2>
+                <p class="section-subtitle">Unimos branding, UX e performance para criar sites, landing pages e identidades que comunicam valor real e geram confiança.</p>
+
+                <div class="about-badges">
+                    <div class="about-badge">
+                        <strong>7 anos</strong>
+                        <span>em design e produto digital</span>
+                    </div>
+                    <div class="about-badge">
+                        <strong>+35%</strong>
+                        <span>média de aumento em conversão</span>
+                    </div>
+                    <div class="about-badge">
+                        <strong>Entrega ágil</strong>
+                        <span>roadmap claro e sprints semanais</span>
+                    </div>
+                </div>
+
+                <div class="about-pills">
+                    <span>UX/UI</span>
+                    <span>Identidade visual</span>
+                    <span>Webflow/WordPress</span>
+                    <span>CRO</span>
+                    <span>Design System</span>
+                </div>
+            </div>
+
+            <div class="about-right">
+                <div class="process-card">
+                    <h3>Processo claro em 4 passos</h3>
+                    <ol>
+                        <li><strong>Imersão:</strong> briefing rápido + mapa de objetivos.</li>
+                        <li><strong>Arquitetura:</strong> estrutura, copy e wireframes focados em conversão.</li>
+                        <li><strong>Visual:</strong> identidade, UI, microinterações e responsividade.</li>
+                        <li><strong>Lançamento:</strong> publicação, otimização e ajustes finos.</li>
+                    </ol>
+                    <p class="process-note">Cada etapa tem entregas, prazos e checkpoints para você acompanhar tudo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SEÇÃO DE PORTFÓLIO / PROJETOS
+         ============================================ -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Últimos Projetos</h2>
+                <p class="section-subtitle">Portfólio com cases de branding, design e produto digital, direto ao ponto</p>
+            </div>
+
+            <div id="portfolioGrid" class="portfolio-grid" aria-live="polite">
+                <!-- Portfolio será renderizado dinamicamente via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SEÇÃO "POR QUE ME CONTRATAR?"
+         ============================================ -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Por Que Contratar?</h2>
+                <p class="section-subtitle">O que você ganha trabalhando comigo</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card" data-aos="fade-up">
+                    <div class="benefit-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#B00020" stroke-width="2"/>
+                            <path d="M12 20l5 5 11-11" stroke="#B00020" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Entrega Rápida</h3>
+                    <p>Projetos entregues no prazo com qualidade garantida. Você não espera, não paga atraso e sai ganhando.</p>
+                </div>
+
+                <div class="benefit-card" data-aos="fade-up">
+                    <div class="benefit-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#B00020" stroke-width="2"/>
+                            <path d="M14 20h12M20 14v12" stroke="#B00020" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Comunicação Clara</h3>
+                    <p>Você nunca fica no escuro. Atualizações constantes, respostas rápidas e alinhamento total com seu projeto.</p>
+                </div>
+
+                <div class="benefit-card" data-aos="fade-up">
+                    <div class="benefit-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#B00020" stroke-width="2"/>
+                            <path d="M20 12v16M20 28l-3-3m3 3l3-3" stroke="#B00020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Qualidade Premium</h3>
+                    <p>Código limpo, design profissional, otimização para conversão. Seu site não é um amador, ele é enterprise.</p>
+                </div>
+
+                <div class="benefit-card" data-aos="fade-up">
+                    <div class="benefit-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#B00020" stroke-width="2"/>
+                            <path d="M20 10v20M20 30l3-3m-3 3l-3-3M10 20h20M30 20l-3 3m3-3l-3-3" stroke="#B00020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Foco em Resultados</h3>
+                    <p>Meu objetivo é seu crescimento. Cada detalhe é pensado para gerar leads, vendas e autoridade.</p>
+                </div>
+
+                <div class="benefit-card" data-aos="fade-up">
+                    <div class="benefit-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#B00020" stroke-width="2"/>
+                            <path d="M18 14h4v12h-4z" fill="#B00020" opacity="0.3"/>
+                            <circle cx="20" cy="12" r="2" fill="#B00020"/>
+                            <path d="M14 26h12" stroke="#B00020" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Suporte Humanizado</h3>
+                    <p>Não sou um chatbot. Você fala comigo, entendo seu negócio e propõe soluções genuinamente úteis.</p>
+                </div>
+
+                <div class="benefit-card" data-aos="fade-up">
+                    <div class="benefit-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <circle cx="20" cy="20" r="18" stroke="#B00020" stroke-width="2"/>
+                            <circle cx="13" cy="20" r="2" fill="#B00020"/>
+                            <circle cx="20" cy="20" r="2" fill="#B00020"/>
+                            <circle cx="27" cy="20" r="2" fill="#B00020"/>
+                        </svg>
+                    </div>
+                    <h3>Flexibilidade</h3>
+                    <p>Adapto meus serviços ao seu orçamento, cronograma e necessidades específicas. Sem engessamento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SEÇÃO DE DEPOIMENTOS
+         ============================================ -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Depoimentos</h2>
+                <p class="section-subtitle">O que clientes e parceiros dizem sobre meu trabalho</p>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Depoimento 1 -->
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">GR</div>
+                    <div class="testimonial-meta">
+                        <h4>Laura Menezes</h4>
+                        <p>CMO, SaaS B2B</p>
+                    </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "Guilherme chegou com um diagnóstico claro, reorganizou copy, layout e formulários no nosso site. Em 6 semanas, demos um salto de +38% em leads qualificados. Ele fala a língua do time de marketing e entrega rápido."
+                    </p>
+                </div>
+
+                <!-- Depoimento 2 -->
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">MJ</div>
+                    <div class="testimonial-meta">
+                        <h4>Felipe Duarte</h4>
+                        <p>Fundador, Estúdio Criativo</p>
+                    </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "Precisávamos de uma identidade que conversasse com clientes de branding e social. O Guilherme criou um guia visual completo e arquivos prontos em Photoshop, Illustrator e InDesign. Ficou fácil de replicar e o cliente final entendeu tudo na primeira apresentação."
+                    </p>
+                </div>
+
+                <!-- Depoimento 3 -->
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">RP</div>
+                    <div class="testimonial-meta">
+                        <h4>Beatriz Ramos</h4>
+                        <p>Owner, Loja de Moda</p>
+                    </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "Ele refez nossa landing de coleção com foco em UX e fotos bem posicionadas. Ajustou paleta, tipografia e botões. As clientes entenderam a proposta e o ticket médio subiu. Entrega certeira."
+                    </p>
+                </div>
+
+                <!-- Depoimento 4 -->
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">BC</div>
+                    <div class="testimonial-meta">
+                        <h4>Marcus Azevedo</h4>
+                        <p>Produtor, Eventos</p>
+                    </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020">
+                            <path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "Guilherme criou todo o material do evento: identidade, folder e peças sociais. Entregou arquivos editáveis em InDesign e Illustrator, com export otimizado. O cliente aprovou de primeira."
+                    </p>
+                </div>
+
+                <!-- Depoimento 5 -->
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">JD</div>
+                        <div class="testimonial-meta">
+                            <h4>João Diniz</h4>
+                            <p>Head de Produto, Fintech</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020"><path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020"><path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020"><path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020"><path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020"><path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/></svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "Precisávamos alinhar UI com guidelines e criar componentes no Figma. Ele padronizou ícones, grids e entregou exports prontos para dev. O handoff foi limpo e sem retrabalho."
+                    </p>
+                </div>
+
+                <!-- Depoimento 6 -->
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">AP</div>
+                        <div class="testimonial-meta">
+                            <h4>Ana Prado</h4>
+                            <p>Diretora de Arte</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-rating">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020"><path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020"><path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020"><path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020"><path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/></svg>
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="#B00020"><path d="M8 1l2.4 4.9 5.4.8-3.9 3.8.9 5.4L8 12.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8L8 1z"/></svg>
+                    </div>
+                    <p class="testimonial-text">
+                        "Nos apresentou versões em Illustrator e InDesign, prontas para gráfica e digital. Ajustou cores para pantone e CMYK, cuidou de export em lotes e deixou um guia rápido de uso. Muito prático."
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SEÇÃO DE CONTATO / CTA FINAL
+         ============================================ -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-header">
+                <h2 class="section-title">Vamos Trabalhar Juntos?</h2>
+                <p class="section-subtitle">Deixe sua mensagem ou entre em contato direto pelo WhatsApp</p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Formulário -->
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Seu Nome</label>
+                            <input type="text" id="name" name="name" placeholder="João Silva" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Seu E-mail</label>
+                            <input type="email" id="email" name="email" placeholder="joao@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">WhatsApp (Opcional)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(11) 9 9999-9999">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="service">Tipo de Serviço</label>
+                            <select id="service" name="service" required>
+                                <option value="">Selecione um serviço</option>
+                                <option value="site">Criação de Site</option>
+                                <option value="design">Design e Branding</option>
+                                <option value="social">Social Media</option>
+                                <option value="ecommerce">E-commerce</option>
+                                <option value="automation">Automação</option>
+                                <option value="consulting">Consultoria</option>
+                                <option value="other">Outro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Sua Mensagem</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Conte-me um pouco sobre seu projeto..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-full" aria-label="Enviar formulário de contato">Enviar Mensagem</button>
+                    </form>
+                </div>
+
+                <!-- Info de contato -->
+                <div class="contact-info">
+                    <div class="contact-info-card">
+                        <div class="info-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" stroke="#B00020" stroke-width="1.5" fill="none"/>
+                            </svg>
+                        </div>
+                        <h4>WhatsApp</h4>
+                        <p>Resposta rápida e atendimento humanizado</p>
+                        <a href="https://wa.me/5511954608135" class="contact-link" target="_blank">
+                            Abrir conversa
+                        </a>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="info-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <rect x="4" y="6" width="32" height="28" rx="2" stroke="#B00020" stroke-width="1.5"/>
+                                <path d="M4 10h32" stroke="#B00020" stroke-width="1.5"/>
+                                <path d="M4 12l16 10 16-10" stroke="#B00020" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <h4>E-mail</h4>
+                        <p>Para dúvidas e briefings detalhados</p>
+                        <a href="mailto:contato.grxagency@outlook.com" class="contact-link">
+                            contato.grxagency@outlook.com
+                        </a>
+                    </div>
+
+                    <div class="contact-info-card">
+                        <div class="info-icon">
+                            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="12" r="6" stroke="#B00020" stroke-width="1.5"/>
+                                <path d="M8 32c0-6 5-10 12-10s12 4 12 10" stroke="#B00020" stroke-width="1.5"/>
+                            </svg>
+                        </div>
+                        <h4>LinkedIn</h4>
+                        <p>Acompanhe conteúdo e atualizações</p>
+                        <a href="https://linkedin.com/in/grxagency" class="contact-link" target="_blank">
+                            Visitar perfil
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Principal -->
+            <div class="contact-cta">
+                <h3>Pronto para impulsionar seu negócio?</h3>
+                <a href="https://wa.me/5511954608135" class="btn btn-primary btn-large" target="_blank" aria-label="Conversar agora com GRX AGENCY no WhatsApp">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Conversar Agora no WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="brand-font">GRX AGENCY</h3>
+                    <p>Agência especializada em criação de sites, design, branding e soluções digitais para empresas que visam crescimento e inovação.</p>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/grxagency" target="_blank" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com/grxagency" target="_blank" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1 1 12.324 0 6.162 6.162 0 0 1-12.324 0zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.965-10.322a1.44 1.44 0 1 1 2.881.001 1.44 1.44 0 0 1-2.881-.001z"/>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com/grxagency" target="_blank" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7a10.6 10.6 0 01-9.8-10.3z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Links Rápidos</h4>
+                    <ul>
+                        <li><a href="#hero">Início</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#portfolio">Portfólio</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#services">Criação de Sites</a></li>
+                        <li><a href="#services">Design e Branding</a></li>
+                        <li><a href="#services">Social Media</a></li>
+                        <li><a href="#services">E-commerce</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="https://wa.me/5511954608135" target="_blank">WhatsApp</a></li>
+                        <li><a href="mailto:contato.grxagency@outlook.com">E-mail</a></li>
+                        <li><a href="https://linkedin.com/in/grxagency" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 GRX AGENCY. Todos os direitos reservados.</p>
+                <p>Desenvolvido com <span class="heart">♥</span> para agências que visam excelência.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

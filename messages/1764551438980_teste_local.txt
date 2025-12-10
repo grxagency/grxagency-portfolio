@@ -1,0 +1,16 @@
+
+================================================================================
+NOVA MENSAGEM RECEBIDA - GRX AGENCY
+================================================================================
+Data: 30/11/2025, 22:10:38
+
+INFORMAÇÕES DO CLIENTE:
+- Nome: Teste Local
+- Email: teste@example.com
+- Telefone: 11900000000
+- Assunto: Teste
+
+MENSAGEM:
+Mensagem de teste via endpoint
+
+================================================================================
