@@ -748,7 +748,8 @@
 
     <!-- EmailJS SDK (optional) - used when EMAILJS_* IDs are configured -->
     <script type="text/javascript" src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
-    <script src="script.js"></script>
+    <!-- Cache-bust query added to force browsers to fetch the updated script -->
+    <script src="script.js?v=2"></script>
 </body>
 </html>
 
