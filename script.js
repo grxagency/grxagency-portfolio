@@ -769,12 +769,10 @@ function initFormHandler() {
         submitBtn.disabled = true;
         submitBtn.textContent = 'Enviando...';
 
-        console.log('Contato: iniciando envio', formData);
-
         try {
-            let data = null;
+            let success = false;
 
-            // 1) Try EmailJS if configured. Prefer SDK if present, otherwise call EmailJS REST API directly.
+            // Strategy 1: Try EmailJS (SDK or REST API)
             if (EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_USER_ID) {
                 const templateParams = {
                     name: formData.name,
@@ -784,20 +782,19 @@ function initFormHandler() {
                     message: formData.message
                 };
 
+                // Try SDK if loaded
                 if (window.emailjs) {
-                    // Use SDK
                     try {
-                        const res = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
-                        console.log('EmailJS (SDK) result', res);
-                        data = { success: true };
+                        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+                        console.log('✓ EmailJS SDK enviou com sucesso');
+                        success = true;
                     } catch (e) {
-                        console.error('EmailJS (SDK) send error', e);
-                        let errMsg = 'Erro ao enviar via EmailJS (SDK)';
-                        try { errMsg = e && (e.text || e.statusText || e.message) || JSON.stringify(e); } catch (_) {}
-                        data = { success: false, message: `EmailJS SDK error: ${errMsg}` };
+                        console.warn('EmailJS SDK falhou, tentando REST...', e);
                     }
-                } else {
-                    // Try REST API (no SDK required) - this avoids dependency on the SDK script loading
+                }
+
+                // If SDK didn't work, try REST API
+                if (!success) {
                     try {
                         const resp = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
                             method: 'POST',
@@ -810,70 +807,67 @@ function initFormHandler() {
                             })
                         });
 
-                        if (!resp.ok) {
-                            const body = await resp.text().catch(() => '');
-                            console.error('EmailJS REST returned non-OK', resp.status, body);
-                            data = { success: false, message: `EmailJS REST error ${resp.status}: ${body}` };
+                        if (resp.ok) {
+                            console.log('✓ EmailJS REST enviou com sucesso');
+                            success = true;
                         } else {
-                            const j = await resp.json().catch(() => ({}));
-                            console.log('EmailJS (REST) success', j);
-                            data = { success: true };
+                            console.warn('EmailJS REST falhou, tentando Netlify...', resp.status);
                         }
                     } catch (e) {
-                        console.error('EmailJS REST request failed', e);
-                        data = { success: false, message: `EmailJS REST failed: ${e && e.message ? e.message : e}` };
+                        console.warn('EmailJS REST falhou, tentando Netlify...', e);
                     }
                 }
-            } else {
-                if (EMAILJS_SERVICE_ID || EMAILJS_TEMPLATE_ID || EMAILJS_USER_ID) console.warn('EmailJS IDs incomplete; skipping EmailJS.');
+            }
 
-                // 2) Fallback: try relative /api/contact first (works if you deployed server on same host)
-                let response = null;
+            // Strategy 2: Fallback to Netlify serverless function
+            if (!success) {
                 try {
-                    response = await fetch('/api/contact', {
+                    const resp = await fetch('/.netlify/functions/contact', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(formData)
                     });
-                } catch (e) {
-                    console.warn('Fetch to /api/contact failed', e);
-                }
 
-                // If relative route returned 404 or wasn't available, try localhost (local dev)
-                if (!response || !response.ok) {
-                    if (response && response.status === 404) {
-                        try {
-                            response = await fetch('http://localhost:3000/api/contact', {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify(formData)
-                            });
-                        } catch (e) {
-                            console.warn('Fetch to http://localhost:3000/api/contact failed', e);
-                        }
+                    if (resp.ok) {
+                        console.log('✓ Netlify Function enviou com sucesso');
+                        success = true;
+                    } else {
+                        console.error('Netlify Function retornou erro:', resp.status);
                     }
-                }
-
-                if (response && response.ok) {
-                    try { data = await response.json(); } catch (e) { data = { success: false, message: 'Resposta inválida do servidor' }; }
-                    console.log('Resultado envio (server):', data);
-                } else {
-                    const status = response ? response.status : 'no-response';
-                    const text = response ? await response.text().catch(() => '') : '';
-                    console.error('Server error when posting contact:', status, text);
-                    data = { success: false, message: `Server error ${status}: ${text || 'no body'}` };
+                } catch (e) {
+                    console.error('Netlify Function não disponível:', e);
                 }
             }
 
-            if (data && data.success) {
+            // Strategy 3: Last resort - try local /api/contact
+            if (!success) {
+                try {
+                    const resp = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(formData)
+                    });
+
+                    if (resp.ok) {
+                        console.log('✓ /api/contact enviou com sucesso');
+                        success = true;
+                    } else {
+                        console.error('/api/contact retornou erro:', resp.status);
+                    }
+                } catch (e) {
+                    console.error('/api/contact não disponível:', e);
+                }
+            }
+
+            if (success) {
                 showSuccessMessage(form, '✓ Mensagem recebida com sucesso! Você receberá uma confirmação por e-mail em breve.');
                 form.reset();
             } else {
-                showErrorMessage((data && data.message) || 'Não foi possível enviar a mensagem. Tente novamente.');
+                showErrorMessage('Não foi possível enviar a mensagem. Tente novamente ou entre em contato via WhatsApp.');
             }
         } catch (err) {
             console.error('Erro ao enviar:', err);
-            showErrorMessage('Erro ao enviar mensagem. Tente novamente ou entre em contato via WhatsApp. ' + (err && err.message ? err.message : ''));
+            showErrorMessage('Erro ao enviar mensagem. Tente novamente ou entre em contato via WhatsApp.');
         } finally {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;

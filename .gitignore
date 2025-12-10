@@ -13,3 +13,6 @@ coverage/
 *.log
 Thumbs.db
 __pycache__/.vercel
+
+# Local Netlify folder
+.netlify
