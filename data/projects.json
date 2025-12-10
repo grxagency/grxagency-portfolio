@@ -182,5 +182,17 @@
                ]
             }
         ]
+    },
+    {
+        "title_pt": "Barbearia Online",
+        "title_en": "Barber Shop Online",
+        "short_pt": "Site moderno para barbearia com agendamento e portfolio",
+        "short_en": "Modern barber shop website with booking and portfolio",
+        "thumb":  "portfolio/landing-page-2.png",
+        "tags": ["Site","Negócio"],
+        "cover":  "portfolio/landing-page-2.png",
+        "caseUrl":  "https://mensbabershop.netlify.app/",
+        "slug":  "barbearia-online",
+        "images":  ["portfolio/landing-page-2.png"]
     }
 ]
