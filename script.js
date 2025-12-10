@@ -12,6 +12,13 @@ const EMAILJS_SERVICE_ID = 'service_4dnn4mn';
 const EMAILJS_TEMPLATE_ID = 'template_ia723n8';
 const EMAILJS_USER_ID = 'qSqDsW_1Hf7jx1YDl';
 
+// Version marker for debugging cached clients
+try {
+    console.log('GRX Script version: v2');
+    window.GRX_SCRIPT_VERSION = 'v2';
+    document.documentElement.setAttribute('data-grx-script-version', 'v2');
+} catch (e) { /* ignore */ }
+
 // Initialize EmailJS if SDK is loaded and user id provided
 if (typeof window !== 'undefined' && window.emailjs && EMAILJS_USER_ID) {
     try { emailjs.init(EMAILJS_USER_ID); } catch (e) { console.warn('EmailJS init failed', e); }
