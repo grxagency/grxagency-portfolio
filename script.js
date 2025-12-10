@@ -183,9 +183,9 @@ const TRANSLATIONS = {
                 }
             },
             infoCards: [
-                { title: 'WhatsApp', text: 'Resposta rápida e atendimento humanizado', linkText: 'Abrir conversa', href: 'https://wa.me/5511954608135' },
-                { title: 'E-mail', text: 'Para dúvidas e briefings detalhados', linkText: 'contato.grxagency@outlook.com', href: 'mailto:contato.grxagency@outlook.com' },
-                { title: 'LinkedIn', text: 'Acompanhe conteúdo e atualizações', linkText: 'Visitar perfil', href: 'https://linkedin.com/in/grxagency' }
+                { title: 'WhatsApp', text: 'Fast response and personalized support', linkText: 'Start conversation', href: 'https://wa.me/5511954608135' },
+                { title: 'E-mail', text: 'For detailed questions and briefs', linkText: 'contato.grxagency@outlook.com', href: 'mailto:contato.grxagency@outlook.com' },
+                { title: 'LinkedIn', text: 'Follow content and updates', linkText: 'Visit profile', href: 'https://linkedin.com/in/grxagency' }
             ],
             cta: {
                 title: 'Ready to boost your business?',
