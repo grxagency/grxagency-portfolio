@@ -212,7 +212,7 @@ const TRANSLATIONS = {
 };
 
 // Estado do idioma atual
-let CURRENT_LANG = localStorage.getItem('lang') || 'pt';
+let CURRENT_LANG = localStorage.getItem('lang') || 'en';
 
 // Armazenará SVGs originais capturados do DOM para preservar ícones
 const ORIGINAL_SERVICE_ICONS = [];
@@ -1233,7 +1233,7 @@ function initPortfolio() {
         .then(projects => {
             console.log(`✅ Sucesso! ${projects.length} projetos carregados:`, projects);
             if (projects.length === 0) {
-                grid.innerHTML = '<p style="text-align:center; padding: 40px;">⚠️ Nenhum projeto encontrado.</p>';
+                grid.innerHTML = `<p style="text-align:center; padding: 40px;">⚠️ ${t('portfolio.noProjects')}</p>`;
                 return;
             }
             renderPortfolio(projects, grid);
@@ -1252,7 +1252,7 @@ function renderPortfolio(projects, grid) {
     grid.innerHTML = '';
 
     if (!projects || projects.length === 0) {
-        grid.innerHTML = '<p style="text-align:center; grid-column: 1 / -1;">Nenhum projeto disponível.</p>';
+        grid.innerHTML = `<p style="text-align:center; grid-column: 1 / -1;">${t('portfolio.noProjects')}</p>`;
         return;
     }
 
@@ -1292,7 +1292,7 @@ function renderPortfolio(projects, grid) {
         const info = document.createElement('div');
         info.className = 'portfolio-info';
         const h3 = document.createElement('h3');
-        h3.textContent = getProjectText(p, 'title') || 'Sem título';
+        h3.textContent = getProjectText(p, 'title') || (CURRENT_LANG === 'en' ? 'Untitled' : 'Sem título');
         const ptxt = document.createElement('p');
         ptxt.textContent = getProjectText(p, 'short') || (CURRENT_LANG === 'en' ? 'Description not available' : 'Descrição não disponível');
 
