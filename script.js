@@ -1849,6 +1849,18 @@ function openLightbox(projects, projectIndex) {
             contentDiv.appendChild(ctaP);
         }
 
+        if (project.caseUrl && project.caseUrl !== '#') {
+            const linkBtn = document.createElement('a');
+            linkBtn.className = 'btn btn-primary';
+            linkBtn.textContent = 'View Online';
+            linkBtn.href = project.caseUrl;
+            linkBtn.target = '_blank';
+            linkBtn.rel = 'noopener noreferrer';
+            linkBtn.style.marginTop = '20px';
+            linkBtn.style.display = 'inline-block';
+            contentDiv.appendChild(linkBtn);
+        }
+
         box.appendChild(contentDiv);
     }
 
