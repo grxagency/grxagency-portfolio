@@ -248,11 +248,11 @@
         "solution_en": "I created a visually immersive portfolio website with high-resolution image galleries, client testimonials, and a contact form for inquiries. The design uses parallax scrolling, video backgrounds, and a minimalist layout to let the photography speak for itself, optimized for fast loading and SEO.",
         "result_en": "The portfolio increased client inquiries by 80%, led to collaborations with major brands, and elevated the photographer's professional image, resulting in higher project rates and expanded opportunities.",
         "cta_en": "Contact me to create a portfolio that showcases your work and attracts dream clients!",
-        "thumb":  "assets/portfolio/elite-photo-1.png",
+        "thumb":  "portfolio/elite-photo-1.png",
         "tags": ["Portfolio","Design","Photography"],
-        "cover":  "assets/portfolio/elite-photo-1.png",
+        "cover":  "portfolio/elite-photo-1.png",
         "caseUrl":  "https://elitephotographer.netlify.app/",
         "slug":  "portfolio-fotografo",
-        "images":  ["assets/portfolio/elite-photo-1.png"]
+        "images":  ["portfolio/elite-photo-1.png"]
     }
 ]
