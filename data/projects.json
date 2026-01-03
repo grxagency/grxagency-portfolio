@@ -222,5 +222,53 @@
         "caseUrl":  "https://mensbabershop.netlify.app/",
         "slug":  "barbearia-online",
         "images":  ["portfolio/landing-page-2.png"]
+    },
+    {
+        "title_pt": "Clínica de Estética Digital",
+        "title_en": "Digital Aesthetics Clinic",
+        "short_pt": "Site responsivo para clínica de estética com agendamento online",
+        "short_en": "Responsive website for aesthetics clinic with online booking",
+        "context_en": "A growing aesthetics clinic needed to modernize their online presence to attract more clients in a competitive beauty market. Their old website was outdated, lacked mobile optimization, and didn't showcase their services effectively, leading to missed appointment opportunities.",
+        "solution_en": "I designed and developed a fully responsive website featuring an integrated online booking system, service galleries, client testimonials, and a clean UI/UX focused on trust and conversion. The site includes SEO optimization, social media integration, and a blog section for beauty tips to engage potential clients.",
+        "result_en": "The new website increased online bookings by 55%, improved client engagement through social shares, and positioned the clinic as a modern, professional beauty destination, boosting overall revenue.",
+        "cta_en": "Contact me to transform your clinic's online presence and attract more clients!",
+        "thumb":  "portfolio/clinica-estetica.png",
+        "tags": ["Web","UX/UI","Booking"],
+        "cover":  "portfolio/clinica-estetica.png",
+        "caseUrl":  "#",
+        "slug":  "clinica-estetica-digital",
+        "images":  ["portfolio/clinica-estetica.png"]
+    },
+    {
+        "title_pt": "Loja Online de Moda Sustentável",
+        "title_en": "Sustainable Fashion E-commerce",
+        "short_pt": "Plataforma e-commerce completa para moda sustentável",
+        "short_en": "Complete e-commerce platform for sustainable fashion",
+        "context_en": "An eco-conscious fashion brand wanted to launch their online store to reach global customers passionate about sustainability. They lacked technical expertise to build a scalable e-commerce site that could handle inventory, payments, and marketing effectively.",
+        "solution_en": "I built a custom e-commerce platform using modern frameworks, integrating secure payment gateways, inventory management, and a user-friendly admin panel. The design emphasizes sustainability with eco-friendly visuals, storytelling sections, and features like carbon footprint calculators to educate and engage customers.",
+        "result_en": "The platform drove a 70% increase in online sales within the first six months, expanded the brand's reach to international markets, and strengthened customer loyalty through transparent sustainability practices.",
+        "cta_en": "Let me build your e-commerce platform and scale your sustainable business globally!",
+        "thumb":  "portfolio/ecommerce-moda.png",
+        "tags": ["E-commerce","Design","Sustainability"],
+        "cover":  "portfolio/ecommerce-moda.png",
+        "caseUrl":  "#",
+        "slug":  "ecommerce-moda-sustentavel",
+        "images":  ["portfolio/ecommerce-moda.png"]
+    },
+    {
+        "title_pt": "Portfólio Pessoal de Fotógrafo",
+        "title_en": "Photographer Personal Portfolio",
+        "short_pt": "Portfólio elegante para fotógrafo profissional",
+        "short_en": "Elegant portfolio for professional photographer",
+        "context_en": "A freelance photographer needed a stunning online portfolio to showcase their work and attract high-end clients. Their previous site was basic and didn't highlight the emotional impact of their photography, limiting their ability to secure premium gigs.",
+        "solution_en": "I created a visually immersive portfolio website with high-resolution image galleries, client testimonials, and a contact form for inquiries. The design uses parallax scrolling, video backgrounds, and a minimalist layout to let the photography speak for itself, optimized for fast loading and SEO.",
+        "result_en": "The portfolio increased client inquiries by 80%, led to collaborations with major brands, and elevated the photographer's professional image, resulting in higher project rates and expanded opportunities.",
+        "cta_en": "Contact me to create a portfolio that showcases your work and attracts dream clients!",
+        "thumb":  "portfolio/portfolio-fotografo.png",
+        "tags": ["Portfolio","Design","Photography"],
+        "cover":  "portfolio/portfolio-fotografo.png",
+        "caseUrl":  "#",
+        "slug":  "portfolio-fotografo",
+        "images":  ["portfolio/portfolio-fotografo.png"]
     }
 ]
