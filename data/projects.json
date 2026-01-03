@@ -251,7 +251,7 @@
         "thumb":  "portfolio/elite-photo-1.png",
         "tags": ["Portfolio","Design","Photography"],
         "cover":  "portfolio/elite-photo-1.png",
-        "caseUrl":  "#",
+        "caseUrl":  "https://elitephotographer.netlify.app/",
         "slug":  "portfolio-fotografo",
         "images":  ["portfolio/elite-photo-1.png"]
     }
