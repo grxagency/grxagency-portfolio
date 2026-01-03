@@ -1800,6 +1800,58 @@ function openLightbox(projects, projectIndex) {
 
     box.appendChild(header);
     box.appendChild(imgContainer);
+
+    // Add case study content if available
+    if (project.context_en || project.solution_en || project.result_en || project.cta_en) {
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'lightbox-content';
+        contentDiv.style.padding = '20px';
+        contentDiv.style.maxHeight = '300px';
+        contentDiv.style.overflowY = 'auto';
+
+        if (project.context_en) {
+            const contextTitle = document.createElement('h4');
+            contextTitle.textContent = 'Project / Client Context';
+            contextTitle.style.marginTop = '0';
+            contextTitle.style.color = 'var(--accent)';
+            const contextP = document.createElement('p');
+            contextP.textContent = project.context_en;
+            contentDiv.appendChild(contextTitle);
+            contentDiv.appendChild(contextP);
+        }
+
+        if (project.solution_en) {
+            const solutionTitle = document.createElement('h4');
+            solutionTitle.textContent = 'Solution / My Work';
+            solutionTitle.style.color = 'var(--accent)';
+            const solutionP = document.createElement('p');
+            solutionP.textContent = project.solution_en;
+            contentDiv.appendChild(solutionTitle);
+            contentDiv.appendChild(solutionP);
+        }
+
+        if (project.result_en) {
+            const resultTitle = document.createElement('h4');
+            resultTitle.textContent = 'Result / Impact';
+            resultTitle.style.color = 'var(--accent)';
+            const resultP = document.createElement('p');
+            resultP.textContent = project.result_en;
+            contentDiv.appendChild(resultTitle);
+            contentDiv.appendChild(resultP);
+        }
+
+        if (project.cta_en) {
+            const ctaP = document.createElement('p');
+            ctaP.textContent = project.cta_en;
+            ctaP.style.fontWeight = 'bold';
+            ctaP.style.marginTop = '20px';
+            ctaP.style.color = 'var(--accent)';
+            contentDiv.appendChild(ctaP);
+        }
+
+        box.appendChild(contentDiv);
+    }
+
     box.appendChild(closeBtn);
     overlay.appendChild(box);
     document.body.appendChild(overlay);
